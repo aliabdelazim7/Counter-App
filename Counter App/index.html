@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced Counter App</title>
+    <link rel="stylesheet" href="Style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1><i class="fas fa-calculator"></i> Advanced Counter App</h1>
+            <div class="theme-toggle">
+                <i class="fas fa-moon"></i>
+            </div>
+        </header>
+
+        <div class="main-content">
+            <div class="counter-section">
+                <div class="counter-card primary">
+                    <h3>Main Counter</h3>
+                    <div class="counter-display">
+                        <button id="decrement" class="counter-btn">
+                            <i class="fas fa-minus"></i>
+                        </button>
+                        <div class="count-value">
+                            <span id="count">0</span>
+                            <div class="count-label">Count</div>
+                        </div>
+                        <button id="increment" class="counter-btn">
+                            <i class="fas fa-plus"></i>
+                        </button>
+                    </div>
+                    <div class="counter-controls">
+                        <button id="reset" class="btn secondary">
+                            <i class="fas fa-redo"></i> Reset
+                        </button>
+                        <button id="setValue" class="btn info">
+                            <i class="fas fa-edit"></i> Set Value
+                        </button>
+                    </div>
+                </div>
+
+                <div class="counter-card secondary">
+                    <h3>Step Counter</h3>
+                    <div class="step-controls">
+                        <label for="stepSize">Step Size:</label>
+                        <input type="number" id="stepSize" value="1" min="1" max="100">
+                    </div>
+                    <div class="counter-display">
+                        <button id="decrementStep" class="counter-btn">
+                            <i class="fas fa-minus"></i>
+                        </button>
+                        <div class="count-value">
+                            <span id="stepCount">0</span>
+                            <div class="count-label">Step Count</div>
+                        </div>
+                        <button id="incrementStep" class="counter-btn">
+                            <i class="fas fa-plus"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="counter-card accent">
+                    <h3>Timer Counter</h3>
+                    <div class="timer-controls">
+                        <button id="startTimer" class="btn success">
+                            <i class="fas fa-play"></i> Start
+                        </button>
+                        <button id="stopTimer" class="btn warning" disabled>
+                            <i class="fas fa-stop"></i> Stop
+                        </button>
+                        <button id="resetTimer" class="btn danger">
+                            <i class="fas fa-redo"></i> Reset
+                        </button>
+                    </div>
+                    <div class="count-value">
+                        <span id="timerCount">0</span>
+                        <div class="count-label">Seconds</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="settings-section">
+                <div class="settings-card">
+                    <h3><i class="fas fa-cog"></i> Settings</h3>
+                    <div class="setting-group">
+                        <label for="autoSave">Auto-save:</label>
+                        <input type="checkbox" id="autoSave" checked>
+                    </div>
+                    <div class="setting-group">
+                        <label for="soundEnabled">Sound effects:</label>
+                        <input type="checkbox" id="soundEnabled" checked>
+                    </div>
+                    <div class="setting-group">
+                        <label for="maxValue">Max Value:</label>
+                        <input type="number" id="maxValue" value="999999" min="1">
+                    </div>
+                    <div class="setting-group">
+                        <label for="minValue">Min Value:</label>
+                        <input type="number" id="minValue" value="-999999" max="-1">
+                    </div>
+                </div>
+
+                <div class="shortcuts-card">
+                    <h3><i class="fas fa-keyboard"></i> Keyboard Shortcuts</h3>
+                    <div class="shortcut-list">
+                        <div class="shortcut-item">
+                            <span class="key">+</span>
+                            <span class="description">Increment</span>
+                        </div>
+                        <div class="shortcut-item">
+                            <span class="key">-</span>
+                            <span class="description">Decrement</span>
+                        </div>
+                        <div class="shortcut-item">
+                            <span class="key">R</span>
+                            <span class="description">Reset</span>
+                        </div>
+                        <div class="shortcut-item">
+                            <span class="key">Space</span>
+                            <span class="description">Start/Stop Timer</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="history-section">
+                <div class="history-card">
+                    <h3><i class="fas fa-history"></i> Counter History</h3>
+                    <div class="history-controls">
+                        <button id="clearHistory" class="btn danger">
+                            <i class="fas fa-trash"></i> Clear History
+                        </button>
+                        <button id="exportHistory" class="btn info">
+                            <i class="fas fa-download"></i> Export
+                        </button>
+                    </div>
+                    <div class="history-list" id="historyList">
+                        <!-- History items will be added here -->
+                    </div>
+                </div>
+
+                <div class="stats-card">
+                    <h3><i class="fas fa-chart-bar"></i> Statistics</h3>
+                    <div class="stats-grid">
+                        <div class="stat-item">
+                            <div class="stat-value" id="totalClicks">0</div>
+                            <div class="stat-label">Total Clicks</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value" id="maxReached">0</div>
+                            <div class="stat-label">Max Reached</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value" id="minReached">0</div>
+                            <div class="stat-label">Min Reached</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value" id="resetCount">0</div>
+                            <div class="stat-label">Resets</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="quick-actions">
+                <h3><i class="fas fa-bolt"></i> Quick Actions</h3>
+                <div class="action-buttons">
+                    <button id="doubleValue" class="btn accent">
+                        <i class="fas fa-times"></i> Double
+                    </button>
+                    <button id="halfValue" class="btn accent">
+                        <i class="fas fa-divide"></i> Half
+                    </button>
+                    <button id="squareValue" class="btn accent">
+                        <i class="fas fa-square"></i> Square
+                    </button>
+                    <button id="randomValue" class="btn accent">
+                        <i class="fas fa-random"></i> Random
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal for setting custom value -->
+    <div id="setValueModal" class="modal">
+        <div class="modal-content">
+            <h3>Set Custom Value</h3>
+            <input type="number" id="customValue" placeholder="Enter value">
+            <div class="modal-buttons">
+                <button id="confirmValue" class="btn primary">Set</button>
+                <button id="cancelValue" class="btn secondary">Cancel</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
